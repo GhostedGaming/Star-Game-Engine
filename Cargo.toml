@@ -1,0 +1,13 @@
+[package]
+name = "small_project"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+command = "0.0.0"
+ratatui = "0.29.0"
+ratatui-splash-screen = "0.1.4"
+tobj = "4.0.2"
+mlua = { version = "0.10.2", features = ["lua54", "vendored"] }
+rustscript = "0.0.0"
+
