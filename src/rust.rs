@@ -1,13 +1,16 @@
 use std::io::Write;
 use std::collections::{HashMap, HashSet};
 
+use chrono::prelude::*;
+
 pub fn start_rust_repl() {
     let mut variables: HashMap<String, String> = HashMap::new();
     
     println!("\x1b[94mRust Terminal Started - Type 'exit' to return to main shell\x1b[0m");
     
     loop {
-        print!("\x1b[38;2;255;165;0mrust>\x1b[0m ");
+        let datetime: DateTime<Local> = Local::now();
+        print!("\x1b[38;2;255;165;0mrust[{}]>\x1b[0m ", datetime.format("%H:%M:%S").to_string());
         std::io::stdout().flush().unwrap();
         
         let mut input = String::new();
@@ -46,6 +49,12 @@ pub fn start_rust_repl() {
                     println!("\x1b[32mFunction defined\x1b[0m");
                 }
             },
+            _ if command.starts_with("warn") => {
+                if command.contains("()") {
+                    let content = command.trim_start_matches("println!(\"").trim_end_matches("\")");
+                    println!("{}", content);
+                }
+            },
             _ if command == "help" => {
                 println!("\x1b[36mAvailable commands:\x1b[0m");
                 println!("  print!(\"text\")    - Print without newline");
@@ -55,6 +64,7 @@ pub fn start_rust_repl() {
                 println!("  fn name() {{}}    - Define function");
                 println!("  exit             - Exit REPL");
             },
+            
             _ => {
                 let highlighted_command = command
                     .replace("fn ", "\x1b[38;2;255;20;147mfn\x1b[0m ")

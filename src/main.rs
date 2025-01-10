@@ -21,19 +21,22 @@
 
 
 //   ▼    ▼    ▼    ▼    ▼  ▼    ▼    ▼    ▼ 
-use std::{self, env, io::Write, path::Path, process::{Child, Command, Stdio}};
+use std::{self, env, io::Write, path::Path, process::{Child, Command, Stdio}, thread::sleep, time::Duration};
 mod lua;
 mod rust;
+use chrono::prelude::*;
 //This is where the libraries will be handled
-
 
 fn main() {
     external_scripts();
+    std::thread::sleep(Duration::from_secs(4));
+
     // This code creates a shell enviroment.
     loop {
-        print!("Star-Engine> ");
+        let datetime: DateTime<Utc> = Utc::now();
+        print!("Star-Engine[{}] ",datetime.format("%H:%M:%S").to_string());
         std::io::stdout().flush().unwrap();
-        
+
         let mut input = String::new();
         std::io::stdin().read_line(&mut input).unwrap();
         
@@ -44,6 +47,11 @@ fn main() {
             _ if command.starts_with("echo ") => {
                 let output = &command[5..];
                 println!("{}", output);
+            },
+            _ if command.starts_with("about") => {
+                println!("                Star-Engine is a very customizable game engine supporting lua,blueprints and rust.
+                We strive to help people get better at programming.
+                We will be providing example templates for other users to use and learn.")
             }
             _ if command.starts_with("lua") => {
                 lua::start_lua().unwrap_or_else(|e| println!("Lua error: {}", e));
@@ -68,5 +76,5 @@ use OBJ_loader_with_OBJ_files::obj_loader::load_obj;
 //Bare with me i know there is a better way but i dont know that way.
 
 fn external_scripts() {
-    //splash::splash().expect("");
+    splash::splash();
 }

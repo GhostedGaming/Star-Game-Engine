@@ -10,4 +10,9 @@ ratatui-splash-screen = "0.1.4"
 tobj = "4.0.2"
 mlua = { version = "0.10.2", features = ["lua54", "vendored"] }
 rustscript = "0.0.0"
+colored = "3.0.0"
+chrono = "0.4.39"
+warn = "0.2.2"
+log = "0.4.22"
+rustyline = "15.0.0"
 
