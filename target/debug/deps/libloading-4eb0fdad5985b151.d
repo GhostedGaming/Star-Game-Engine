@@ -1,0 +1,11 @@
+C:\Users\richa\star_game_engine\target\debug\deps\liblibloading-4eb0fdad5985b151.rmeta: C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\lib.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\changelog.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\os\mod.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\os\windows\mod.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\util.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\error.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\safe.rs
+
+C:\Users\richa\star_game_engine\target\debug\deps\libloading-4eb0fdad5985b151.d: C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\lib.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\changelog.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\os\mod.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\os\windows\mod.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\util.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\error.rs C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\safe.rs
+
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\lib.rs:
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\changelog.rs:
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\os\mod.rs:
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\os\windows\mod.rs:
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\util.rs:
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\error.rs:
+C:\Users\richa\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libloading-0.8.6\src\safe.rs:
