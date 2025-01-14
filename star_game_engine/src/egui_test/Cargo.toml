@@ -1,0 +1,10 @@
+[package]
+name = "egui_test"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = "0.30.0"
+egui = "0.30.0"
+egui_extras = "0.30.0"
+env_logger = "0.11.6"

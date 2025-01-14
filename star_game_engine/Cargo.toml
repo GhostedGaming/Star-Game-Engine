@@ -1,0 +1,24 @@
+[package]
+name = "small_project"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+command = "0.0.0"
+ratatui = "0.29.0"
+ratatui-splash-screen = "0.1.4"
+tobj = "4.0.2"
+mlua = { version = "0.10.2", features = ["lua54", "vendored"] }
+rustscript = "0.0.0"
+colored = "3.0.0"
+chrono = "0.4.39"
+warn = "0.2.2"
+log = "0.4.22"
+rustyline = "15.0.0"
+egui = "0.30.0"
+eframe = "0.30.0"
+env_logger = "0.11.6"
+tokio = { version = "1.43.0", features = ["macros", "rt-multi-thread"] }
+egui-gizmo = "0.16.2"
+nalgebra = "0.33.2"
+
