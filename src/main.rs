@@ -1,8 +1,14 @@
-use std::{self, env, io::Write, path::Path, process::{Child, Command, Stdio}, thread::sleep, time::Duration};
-mod lua;
+use std::{self, env, io::{self, Write}, path::Path, process::{Child, Command, Stdio}, thread::{self, sleep}, time::{self, Duration}};
+pub mod lua;
+mod splash;
+mod obj_loader_with_obj_files;
+mod egui_test;
+mod sausage_3d;
+use obj_loader_with_obj_files::obj_loader::load_obj;
 mod rust;
 use chrono::prelude::*;
 use tokio;
+use std::process;
 
 //This is where the libraries will be handled
 
@@ -21,16 +27,12 @@ async fn main() {
 }
 
 //We will be initializing other scripts here.
-mod splash;
-mod obj_loader_with_obj_files;
-mod egui_test;
-use obj_loader_with_obj_files::obj_loader::load_obj;
 
 //Bare with me i know there is a better way but i dont know that way.
 
 async fn external_scripts(){
     splash::splash();
-    egui_test::frontend::main().expect("");
+    egui_test::src::main::main().expect("");
 }
 
 async fn terminal() {
@@ -48,27 +50,25 @@ async fn terminal() {
         let command = input.trim();
         
         match command {
-            "exit" => break,
+            "exit" => process::exit(0),
             _ if command.starts_with("echo ") => {
                 let output = &command[5..];
                 println!("{}", output);
             },
             _ if command.starts_with("about") => {
-                println!("                Star-Engine is a very customizable game engine supporting lua,blueprints and rust.
-                We strive to help people get better at programming.
-                We will be providing example templates for other users to use and learn.")
+                println!("Star-Engine is a very customizable game engine supporting lua,blueprints and rust.\nWe strive to help people get better at programming.\nWe will be providing example templates for other users to use and learn.")
             },
             _ if command.starts_with("help") => {
                 println!("Here is a list of commands...");
                 println!("-lua: the lua command starts the lua terminal and typing 'exit' will quit the lua terminal");
                 println!("-rust: the rust command starts the rust terminal and typing 'exit' will quit the rust terminal");
+                println!("-spin: displays a spinning donut animation");
             },
-            _ if command.starts_with("lua") => {
-                lua::start_lua().unwrap_or_else(|e| println!("Lua error: {}", e));
-            }
-            _ if command.starts_with("rust") => {
-                rust::start_rust_repl();
-            }
+            _ if command.starts_with("spin") => {
+                let mut sausage = sausage_3d::Sausage3D::new();
+                sausage.spin();
+            },
+
             _ if command.starts_with("obj") => {
                 load_obj();
             }

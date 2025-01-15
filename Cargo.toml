@@ -19,4 +19,6 @@ egui = "0.30.0"
 eframe = "0.30.0"
 env_logger = "0.11.6"
 tokio = { version = "1.43.0", features = ["macros", "rt-multi-thread"] }
+egui-gizmo = "0.16.2"
+nalgebra = "0.33.2"
 

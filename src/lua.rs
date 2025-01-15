@@ -1,11 +1,36 @@
 use std::{io::Write, mem::replace};
-
 use mlua::prelude::*;
-
 use chrono::prelude::*;
-
 use colored::Colorize;
 
+pub fn run_lua_file(filepath: String) -> LuaResult<String> {
+    let lua = Lua::new_with(
+        mlua::StdLib::ALL_SAFE, 
+        LuaOptions::default()
+    )?;
+    
+    let globals = lua.globals();
+    
+    // Create a buffer to store output
+    let output_buffer = std::sync::Arc::new(std::sync::Mutex::new(String::new()));
+    let output_clone = output_buffer.clone();
+    
+    // Redirect print to our buffer
+    let print = lua.create_function(move |_, text: String| {
+        let mut buffer = output_clone.lock().unwrap();
+        buffer.push_str(&text);
+        buffer.push('\n');
+        Ok(())
+    })?;
+    
+    globals.set("print", print)?;
+    
+    // Run the script
+    lua.load(&std::fs::read_to_string(filepath).unwrap()).exec()?;
+    
+    // Return captured output
+    Ok(output_buffer.lock().unwrap().clone())
+}
 
 pub fn start_lua() -> LuaResult<()> {
     let lua = Lua::new_with(
